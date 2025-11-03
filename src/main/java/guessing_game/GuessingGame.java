@@ -17,15 +17,21 @@ public class GuessingGame {
 
         while (true) {
             System.out.println("Enter your guess: ");
-            userGuess = scanner.nextInt();
 
-            if  (userGuess == guessedNumber) {
-                System.out.println("You guessed right!");
-                break;
-            } else if  (userGuess > guessedNumber) {
-                System.out.println("Your guess is too high.");
+            if (scanner.hasNextInt()) {
+                userGuess = scanner.nextInt();
+
+                if (userGuess == guessedNumber) {
+                    System.out.println("You guessed right!");
+                    break;
+                } else if (userGuess > guessedNumber) {
+                    System.out.println("Your guess is too high.");
+                } else {
+                    System.out.println("Your guess is too low.");
+                }
             } else {
-                System.out.println("Your guess is too low.");
+                System.out.println("That's not a number. Try again.");
+                scanner.next();
             }
         }
 
