@@ -23,7 +23,17 @@ public class GuessingGame {
 
                 if (userGuess == guessedNumber) {
                     System.out.println("You guessed right!");
-                    break;
+
+                    System.out.println("Do you want to play again? (y/n): ");
+                    char playAgain = scanner.next().charAt(0);
+
+                    if (playAgain == 'n') {
+                        break;
+                    } else if (playAgain == 'y') {
+                        guessedNumber = randomGenerator.nextInt(100) + 1;
+                        continue;
+                    }
+
                 } else if (userGuess > guessedNumber) {
                     System.out.println("Your guess is too high.");
                 } else {
